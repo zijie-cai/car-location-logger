@@ -1,10 +1,9 @@
+// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/car-location-logger/',
+  base: './',    // makes all asset links relative (works in both dev & docs/)
   plugins: [react()],
-  build: {
-    outDir: 'docs',   
-  },
+  build: { outDir: 'docs' }
 });

@@ -36,18 +36,27 @@ export default function App() {
   // Auth listener
   useEffect(() => onAuthStateChanged(auth, u => setUser(u)), []);
 
-  // Firestore subscription for latest log
+  // Firestore subscription for latest log, only after sign-in
   useEffect(() => {
+    if (!user) {
+      setCurrentLog(null);
+      return;
+    }
     const q = query(
       collection(db, 'logs'),
       orderBy('timestamp', 'desc'),
       limit(1)
     );
-    return onSnapshot(q, snap => {
-      const doc = snap.docs[0];
-      setCurrentLog(doc ? { id: doc.id, ...doc.data() } : null);
-    });
-  }, []);
+    const unsubscribe = onSnapshot(
+      q,
+      snap => {
+        const doc = snap.docs[0];
+        setCurrentLog(doc ? { id: doc.id, ...doc.data() } : null);
+      },
+      err => console.error('Firestore error:', err)
+    );
+    return unsubscribe;
+  }, [user]);
 
   // Log floor without optimistic update
   const logFloor = async floor => {

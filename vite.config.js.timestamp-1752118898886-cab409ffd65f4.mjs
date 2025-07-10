@@ -1,0 +1,13 @@
+// vite.config.js
+import { defineConfig } from "file:///Users/zai28/Desktop/car-location-logger/node_modules/vite/dist/node/index.js";
+import react from "file:///Users/zai28/Desktop/car-location-logger/node_modules/@vitejs/plugin-react/dist/index.mjs";
+var vite_config_default = defineConfig({
+  base: "./",
+  // makes all asset links relative (works in both dev & docs/)
+  plugins: [react()],
+  build: { outDir: "docs" }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCIvVXNlcnMvemFpMjgvRGVza3RvcC9jYXItbG9jYXRpb24tbG9nZ2VyXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCIvVXNlcnMvemFpMjgvRGVza3RvcC9jYXItbG9jYXRpb24tbG9nZ2VyL3ZpdGUuY29uZmlnLmpzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9Vc2Vycy96YWkyOC9EZXNrdG9wL2Nhci1sb2NhdGlvbi1sb2dnZXIvdml0ZS5jb25maWcuanNcIjsvLyB2aXRlLmNvbmZpZy5qc1xuaW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSc7XG5pbXBvcnQgcmVhY3QgZnJvbSAnQHZpdGVqcy9wbHVnaW4tcmVhY3QnO1xuXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xuICBiYXNlOiAnLi8nLCAgICAvLyBtYWtlcyBhbGwgYXNzZXQgbGlua3MgcmVsYXRpdmUgKHdvcmtzIGluIGJvdGggZGV2ICYgZG9jcy8pXG4gIHBsdWdpbnM6IFtyZWFjdCgpXSxcbiAgYnVpbGQ6IHsgb3V0RGlyOiAnZG9jcycgfVxufSk7Il0sCiAgIm1hcHBpbmdzIjogIjtBQUNBLFNBQVMsb0JBQW9CO0FBQzdCLE9BQU8sV0FBVztBQUVsQixJQUFPLHNCQUFRLGFBQWE7QUFBQSxFQUMxQixNQUFNO0FBQUE7QUFBQSxFQUNOLFNBQVMsQ0FBQyxNQUFNLENBQUM7QUFBQSxFQUNqQixPQUFPLEVBQUUsUUFBUSxPQUFPO0FBQzFCLENBQUM7IiwKICAibmFtZXMiOiBbXQp9Cg==

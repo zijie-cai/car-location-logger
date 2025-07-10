@@ -92,22 +92,22 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
-      <div className="w-full max-w-md bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl shadow-lg overflow-hidden">
-        <header className="bg-gradient-to-r from-blue-400/60 to-blue-600/60 p-6">
-          <h1 className="text-white text-2xl font-semibold text-center">
+    <div className="h-screen w-screen safe-area-inset bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col items-center justify-center p-4">
+      <div className="flex flex-col w-full max-w-md bg-white/30 backdrop-blur-md border border-white/40 rounded-3xl shadow-lg overflow-hidden px-2 py-4">
+        <header className="flex-none bg-gradient-to-r from-teal-400/60 to-teal-600/60 p-4">
+          <h1 className="text-white text-2xl sm:text-3xl font-light text-center truncate px-2">
             🚗 Car Location Logger
           </h1>
         </header>
 
-        <main className="p-6">
+        <main className="flex-1 overflow-y-auto p-4">
           {error && <div className="mb-4 text-red-600">⚠️ {error}</div>}
 
           {!user ? (
             <button
               type="button"
               onClick={() => signInWithPopup(auth, provider)}
-              className="w-full py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition shadow-md"
+              className="w-full py-3 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition shadow-md"
             >
               Sign in with Google
             </button>
@@ -115,7 +115,7 @@ export default function App() {
             <>
               <div className="flex justify-between items-center mb-4">
                 <span className="text-gray-700">
-                  Hello, <strong>{user.displayName}</strong>
+                  Hello, <strong>{user.displayName}</strong> 👋
                 </span>
                 <button
                   type="button"
@@ -132,34 +132,34 @@ export default function App() {
                     key={dir}
                     type="button"
                     onClick={() => { setDirection(dir); setError(null); }}
-                    className={`py-3 bg-white/80 text-gray-800 rounded-full hover:bg-white transition shadow-sm ${direction === dir ? 'ring-2 ring-blue-500' : ''}`}
+                    className={`py-3 bg-emerald-100 text-emerald-800 rounded-full hover:bg-white transition shadow-sm ${direction === dir ? 'ring-2 ring-emerald-500' : ''}`}
                   >
                     {dir}
                   </button>
                 ))}
               </div>
 
-              <div className="grid grid-cols-5 gap-2 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-6">
                 {[2, 3, 4, 5, 6].map(f => (
                   <button
                     key={f}
                     type="button"
                     onClick={() => logFloor(f)}
                     disabled={loading || !direction}
-                    className={`py-3 bg-white/80 text-gray-800 rounded-full hover:bg-white transition shadow-sm disabled:opacity-50 ${selectedFloor === f ? 'ring-2 ring-blue-500' : ''}`}
+                    className={`py-3 bg-indigo-100 text-indigo-800 rounded-full hover:bg-white transition shadow-sm disabled:opacity-50 ${selectedFloor === f ? 'ring-2 ring-indigo-500' : ''}`}
                   >
                     Floor {f}
                   </button>
                 ))}
               </div>
 
-              <div className="mb-6 p-6 bg-white/50 border border-gray-200 rounded-2xl backdrop-blur-sm shadow-inner">
+              <div className="mb-6 p-6 bg-white/70 border border-gray-300 rounded-2xl backdrop-blur-sm shadow-inner">
                 {currentLog ? (
                   <>
-                    <div className="text-sm text-gray-600 mb-1">
+                    <div className="text-xs sm:text-sm text-gray-600 mb-1 truncate px-2">
                       {currentLog.timestamp?.toDate().toLocaleString()} by {currentLog.user}
                     </div>
-                    <div className="text-gray-800">
+                    <div className="text-sm sm:text-base text-gray-800 truncate px-2">
                       🚙 Currently parked on <strong>Floor {currentLog.floor}</strong> to the <strong>{currentLog.direction}</strong>
                     </div>
                   </>
@@ -167,6 +167,8 @@ export default function App() {
                   <div className="text-gray-600">No parking location logged yet.</div>
                 )}
               </div>
+
+              <div className="h-6 sm:h-0"></div>
             </>
           )}
         </main>

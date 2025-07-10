@@ -5,10 +5,9 @@
   "type": "module",
   "homepage": "https://zijie-cai.github.io/car-location-logger",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+  "dev": "vite",
+  "build": "vite build",       
+  "deploy": "npm run build && git add docs && git commit -m \"chore: rebuild docs\""
   },
   "dependencies": {
     "firebase": "^9.23.0",
